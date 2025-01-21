@@ -7,14 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Lead Business</title>
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZGZCS673B"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZZGZCS673B'); // Initial page view event
+
+        gtag('event', 'page_view', {
+            'page_location': '/random-page'
+        })
+    </script>
 </head>
 
 <body>
     <header>
         <h1>About Us</h1>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
+            <a id="first-link" class="" href="index.html">Home</a>
+            <a id="second-link" href="about.html">About</a>
             <a href="services.html">Services</a>
             <a href="contact.html">Contact</a>
             <a href="faq.html">FAQ</a>
@@ -30,6 +44,39 @@
     <footer>
         <p>&copy; 2025 Lead Business. All rights reserved.</p>
     </footer>
+    <script>
+        var myLink = document.querySelector('#first-link');
+
+        myLink.addEventListener("click", function () {
+            gtag('event', 'link_click', {
+                'cta': myLink.innerText
+            })
+        })
+    </script>
+    <script>
+        var myLink = document.querySelector('#second-link');
+
+        myLink.addEventListener("click", function () {
+            gtag('event', 'link_click_2', {
+                'cta': myLink.innerText
+            })
+        })
+    </script>
+
+    <script>
+        var myLinks = document.querySelectorAll('a');
+        myLinks.forEach((link, index) => {
+            console.log(link);
+            link.addEventListener("click", function () {
+                gtag('event', 'link_click', {
+                    'cta': myLink.innerText,
+                    'position': index
+                })
+            })
+        })
+    </script>
+
+
 </body>
 
 </html>

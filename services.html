@@ -7,6 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - Lead Business</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZGZCS673B"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZZGZCS673B');
+    </script>
 </head>
 
 <body>
@@ -33,6 +42,19 @@
     <footer>
         <p>&copy; 2025 Lead Business. All rights reserved.</p>
     </footer>
+
+    <script>
+        var myButtons = document.querySelectorAll('button');
+        myButtons.forEach((button, index) => {
+            console.log(button);
+            button.addEventListener("click", function () {
+                gtag('event', 'button_click', {
+                    'cta': button.innerText,
+                    'position': index
+                })
+            })
+        })
+    </script>
 </body>
 
 </html>
